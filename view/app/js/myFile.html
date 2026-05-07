@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Files</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.24),_transparent_36%),radial-gradient(circle_at_bottom_left,_rgba(6,182,212,0.18),_transparent_42%),linear-gradient(135deg,_#020617,_#0b1220_48%,_#111827)] text-gray-200">
+  <div class="min-h-screen lg:flex">
+    <aside id="sidebar" class="fixed inset-y-0 left-[-20px] z-40 w-[320px] -translate-x-full overflow-hidden border-r border-blue-700/45 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.2),_transparent_45%),linear-gradient(165deg,_rgba(15,23,42,0.95),_rgba(2,6,23,0.94))] shadow-2xl shadow-blue-950/30 backdrop-blur-md transition-transform duration-300 ease-in-out lg:z-auto lg:translate-x-0 lg:shadow-none ml-2">
+      <div class="flex h-full w-full flex-col items-center gap-6 p-5">
+        <div class="flex w-full items-center justify-center gap-3 rounded-xl border border-blue-900 bg-gray-800 p-4 text-center">
+          <img id="profileImage" class="h-12 w-12 rounded-full border-2 border-blue-900 object-cover" src="https://i.pravatar.cc/120?img=15" alt="Profile" />
+          <div>
+            <h3 id="profileName" class="text-sm font-semibold">User Name</h3>
+            <p id="profileRole" class="mt-0.5 text-xs text-gray-400">Data Manager</p>
+          </div>
+        </div>
+
+        <nav class="grid w-full gap-2.5 text-center">
+          <a class="rounded-lg border border-gray-700 bg-gray-900 px-3 py-2.5 text-sm text-gray-200 transition hover:translate-x-0.5 hover:border-blue-900" href="../dashboard.html">Dashboard</a>
+          <a class="rounded-lg border border-gray-700 bg-gray-900 px-3 py-2.5 text-sm text-gray-200 transition hover:translate-x-0.5 hover:border-blue-900" href="./myFile.html">My Files</a>
+          <a class="rounded-lg border border-gray-700 bg-gray-900 px-3 py-2.5 text-sm text-gray-200 transition hover:translate-x-0.5 hover:border-blue-900" href="./history.html">History</a>
+          <a class="rounded-lg border border-gray-700 bg-gray-900 px-3 py-2.5 text-sm text-gray-200 transition hover:translate-x-0.5 hover:border-blue-900" href="#">Logout</a>
+        </nav>
+
+        <section class="mt-1 w-full border-t border-gray-800 pt-4 text-center">
+          <h4 class="mb-2.5 text-sm font-medium text-gray-400">Media Summary</h4>
+          <div class="grid gap-2" id="mediaList"></div>
+        </section>
+      </div>
+    </aside>
+    <div id="sidebarOverlay" class="fixed inset-0 z-30 hidden bg-black/45 lg:hidden"></div>
+
+    <main class="w-full min-w-0 p-4 transition-all duration-300 ease-in-out md:p-5 lg:p-6 lg:pl-[320px]" id="mainContent">
+      <div class="w-full mb-4 pb-4 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5 border-b border-blue-900 w-full pb-4">
+          <button class="grid h-10 w-10 place-items-center rounded-lg border border-blue-900 bg-gray-900 text-lg text-gray-200" id="burgerBtn" aria-label="Toggle sidebar">☰</button>
+          <div>
+            <h1 class="text-2xl font-semibold">My Files</h1>
+            <p class="mt-1 text-sm text-gray-400">Manage and organize your files</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="mb-[-12px] grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4" id="analyticsCards"></section>
+
+      <section class="rounded-xl border border-blue-900 bg-gray-900/90 p-4">
+        <div class="flex items-center justify-between gap-3">
+            <table class="w-full table-auto border-collapse text-left text-sm">
+                <thead class="border-b border-gray-700 bg-gray-900/90 h-12">
+                    <tr class="bg-gray-800">
+                        <th class="text-left text-sm font-medium text-gray-400">File Name</th>
+                        <th class="text-left text-sm font-medium text-gray-400">Type</th>
+                        <th class="text-left text-sm font-medium text-gray-400">Size</th>
+                        <th class="text-left text-sm font-medium text-gray-400">Created</th>
+                        <th class="text-left text-sm font-medium text-gray-400">Actions</th>
+                    </tr>
+                </thead>
+                    <tr class="border-b border-gray-700 hover:bg-gray-800">
+                        <td class="py-2">Report_Q1.pdf</td>
+                        <td class="py-2">PDF</td>
+                        <td class="py-2">2.4 MB</td>
+                        <td class="py-2">2024-06-15 10:30 AM</td>
+                        <td class="py-2">
+                            <button class="rounded bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700">View</button>
+                            <button class="rounded bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">Edit</button>
+                            <button class="rounded bg-red-600 px-3 py-1 text-sm text-white hover:bg-red-700">Delete</button>
+                        </td>
+                    </tr>    
+                    <tr class="border-b border-gray-700 hover:bg-gray-800">
+                        <td class="py-2">Report_Q1.pdf</td>
+                        <td class="py-2">PDF</td>
+                        <td class="py-2">2.4 MB</td>
+                        <td class="py-2">2024-06-15 10:30 AM</td>
+                        <td class="py-2">
+                            <button class="rounded bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700">View</button>
+                            <button class="rounded bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">Edit</button>
+                            <button class="rounded bg-red-600 px-3 py-1 text-sm text-white hover:bg-red-700">Delete</button>
+                        </td>
+                    </tr>    
+                    <tr class="border-b border-gray-700 hover:bg-gray-800">
+                        <td class="py-2">Report_Q1.pdf</td>
+                        <td class="py-2">PDF</td>
+                        <td class="py-2">2.4 MB</td>
+                        <td class="py-2">2024-06-15 10:30 AM</td>
+                        <td class="py-2">
+                            <button class="rounded bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700">View</button>
+                            <button class="rounded bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">Edit</button>
+                            <button class="rounded bg-red-600 px-3 py-1 text-sm text-white hover:bg-red-700">Delete</button>
+                        </td>
+                    </tr>    
+                        <td class="py-2">Report_Q1.pdf</td>
+                        <td class="py-2">PDF</td>
+                        <td class="py-2">2.4 MB</td>
+                        <td class="py-2">2024-06-15 10:30 AM</td>
+                        <td class="py-2">
+                            <button class="rounded bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700">View</button>
+                            <button class="rounded bg-green-600 px-3 py-1 text-sm text-white hover:bg-green-700">Edit</button>
+                            <button class="rounded bg-red-600 px-3 py-1 text-sm text-white hover:bg-red-700">Delete</button>
+                        </td>   
+                <tbody id="fileTableBody">
+                </tbody>
+            </table>
+        </div>
+        <div id="activityRows"></div>
+      </section>
+      <div class="mt-4 flex justify-end gap-2">
+          <button id="addFileBtn" class="rounded bg-blue-600 px-3 py-1 text-sm text-white hover:bg-blue-700 mr-4">Add File</button>
+      </div>
+
+    <div id="addFileBackdrop" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden"></div>
+      <div id="addFilePanel" class="fixed top-0 right-0 h-full w-80 border-l border-blue-700/50 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.22),_transparent_45%),linear-gradient(165deg,_rgba(15,23,42,0.96),_rgba(2,6,23,0.95))] shadow-2xl shadow-blue-950/30 backdrop-blur-md transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <div class="p-6">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-lg font-semibold">Add New File</h2>
+            <button id="closePanelBtn" class="text-gray-400 hover:text-white">&times;</button>
+          </div>
+          <form id="addFileForm">
+            <div class="mb-4">
+              <label for="fileName" class="block text-sm font-medium text-gray-400 mb-2">File Name</label>
+              <input type="text" id="fileName" name="fileName" class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-blue-500" placeholder="Enter file name" required>
+            </div>
+            <div class="mb-4">
+              <label for="fileType" class="block text-sm font-medium text-gray-400 mb-2">File Type</label>
+              <select id="fileType" name="fileType" class="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:border-blue-500" required>
+                <option value="">Select type</option>
+                <option value="pdf">PDF</option>
+                <option value="image">Image</option>
+                <option value="video">Video</option>
+                <option value="audio">Audio</option>
+                <option value="document">Document</option>
+              </select>
+            </div>
+            <div class="flex justify-end gap-2">
+              <button type="button" id="cancelBtn" class="px-4 py-2 bg-gray-700 text-gray-300 rounded-lg hover:bg-gray-600">Cancel</button>
+              <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Add File</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="myFiles.js"></script>
+  <script src="newFileCreatePopup.js"></script>
+</body>
+</html>

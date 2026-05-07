@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="./app/js/logos-removebg-preview.png">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios@1.13.2/dist/axios.min.js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://unpkg.com/axios@1.13.2/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/notyf@3/notyf.min.js"></script>
+</head>
+<body class="min-h-screen bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.24),_transparent_36%),radial-gradient(circle_at_bottom_left,_rgba(6,182,212,0.18),_transparent_42%),linear-gradient(135deg,_#020617,_#0b1220_48%,_#111827)] text-gray-200">
+
+<div class="fixed top-4 left-4 z-10">
+  <img src="./app/js/logos-removebg-preview.png" onerror="this.onerror=null;this.src='./app/js/logo.png';" alt="Logo" class="h-28 w-28 object-contain">
+</div>
+
+<div class="flex items-center justify-center min-h-screen">
+  <div class="w-full max-w-md rounded-2xl border border-blue-500/35 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.2),_transparent_42%),linear-gradient(160deg,_rgba(15,23,42,0.92),_rgba(2,6,23,0.94))] p-8 shadow-2xl shadow-blue-950/30 backdrop-blur-sm">
+    <h2 class="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+    <form onsubmit="signup(event)">
+
+      <div class="mb-4">
+        <label class="block text-gray-400 text-sm font-medium pl-2">Fullname</label>
+        <input name="fullname" type="text" class="text-[14px] w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg outline-none focus:border-blue-500 text-gray-200" placeholder="Enter Fullname" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-400 text-sm font-medium pl-2">Mobile</label>
+        <input name="mobile" type="tel" class="text-[14px] w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg outline-none focus:border-blue-500 text-gray-200" placeholder="Enter Mobile" required>
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-gray-400 text-sm font-medium pl-2">Email</label>
+        <input name="email" type="email" class="text-[14px] w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg outline-none focus:border-blue-500 text-gray-200" placeholder="Example@gmail.com" required>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-400 text-sm font-medium pl-2">Password</label>
+        <div class="relative">
+          <input id="password" name="password" type="password" class="text-[14px] w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-lg outline-none focus:border-blue-500 text-gray-200" placeholder="Enter Password" required>
+          <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-sm text-gray-400 hover:text-gray-200">Show</button>
+        </div>
+      </div>
+      <button type="submit" class="text-sm font-medium w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">Sign Up</button>
+    </form>
+    <div>
+        <p class="text-[14px] text-center mt-4">Already have an account? <a href="sign-in.html" class="text-[14px] font-medium text-blue-500 hover:underline">Login here</a></p>
+    </div>
+  </div>
+</div>
+
+
+<script src="./app/js/signup.js"></script>
+
+<script>
+  const passwordInput = document.getElementById('password');
+  const toggleButton = document.getElementById('togglePassword');
+
+  toggleButton.addEventListener('click', () => {
+    const isPassword = passwordInput.type === 'password';
+    passwordInput.type = isPassword ? 'text' : 'password';
+    toggleButton.textContent = isPassword ? 'Hide' : 'Show';
+  });
+</script>
+
+</body>
+</html>
