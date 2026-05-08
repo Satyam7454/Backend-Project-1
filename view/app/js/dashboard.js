@@ -136,3 +136,8 @@ setupSidebarToggle();
 window.updateDashboardData = function updateDashboardData(newData) {
   renderDashboard(newData);
 };
+
+const logout = () => {
+  localStorage.clear();
+  location.href = "../Sign-in.html";
+};

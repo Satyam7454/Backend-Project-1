@@ -4,7 +4,10 @@ dotenv.config();
 const mongoose = require("mongoose");
 mongoose.connect(process.env.DB);
 
+
+const root = process.cwd();
 const express = require("express");
+const path = require("path");
 const { v4: uniqueId } = require("uuid");
 
 const multer = require("multer");
@@ -41,7 +44,40 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("view"));
+// UI endpoints
+const getPath = (filename) => {
+  return path.join(root, "view", filename);
+};
 
+app.get("/login", (req, res) => {
+  res.sendFile(getPath("index.html"));
+});
+
+app.get("/", (req, res) => {
+  res.sendFile(getPath("index.html"));
+});
+
+app.get("/signup", (req, res) => {
+  res.sendFile(getPath("signup.html"));
+});
+
+app.get("/dashboard", (req, res) => {
+  res.sendFile(getPath("app/dashboard.html"));
+});
+
+app.get("/history", (req, res) => {
+  res.sendFile(getPath("app/history.html"));
+});
+
+app.get("/myfiles", (req, res) => {
+  res.sendFile(getPath("app/myFile.html"));
+});
+
+// app.get("/profile", (req, res) => {
+//   res.sendFile(getPath("app/profile.html"));
+// });
+
+// API endpoints
 app.post("/signup", signup);
 app.post("/login", login);
 app.post("/file", upload.single("file"), createFile);
